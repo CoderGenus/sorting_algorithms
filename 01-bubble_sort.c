@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdbool.h>
 
 /**
  * swapper - swaps two numbers
@@ -23,28 +24,26 @@ void swapper(int *a, int *b)
 
 void bubble_sort(int *array, size_t size)
 {
-	int swapped;
-	size_t i, j;
+	size_t i, length = size;
+	bool bubble;
 
-	if (size < 2)
+	if (array == NULL || size < 2)
 		return;
 
-	for (i = 0; i < size - i; i++)
+	do
 	{
-		swapped = 0;
-		for (j = 0; j < (size - i) - 1; j++)
+		bubble = false;
+		for (i = 0; i < length - 1; i++)
 		{
-			if (array[j] > array[j + 1])
+			if (array[i] > array[i + 1])
 			{
-				swapper(&array[j], &array[j + 1]);
-				swapped = 1;
+				swapper(array + 1, array + i + 1);
 				print_array(array, size);
+
+				bubble = true;
 			}
 		}
-
-		if (!swapped)
-			break;
-		
-		print_array(array, size);
-	}
+		length--;
+	} while (bubble);
 }
+

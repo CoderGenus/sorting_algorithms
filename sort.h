@@ -19,13 +19,21 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+/**
+ * swapper - swaps two numbers
+ *
+ * @a: first number to be swapped
+ * @b: second number to be swapped
+ */
+
+void swapper(int *a, int *b);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
 void add_node(listint_t **list, int n);
 void insertion_sort_list(listint_t **list);
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
-void swapper(int *a, int *b);
+void selection_sort(int *array, size_t size);
 
 
 #endif
